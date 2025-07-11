@@ -62,6 +62,9 @@
     "trailingspace",
     "wordmark",
     "xarray",
-    "xobj"
+    "xobj",
+    "setuptools",
+    "jupyterlab",
+    "pycache",
   ]
 }
