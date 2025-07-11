@@ -66,5 +66,6 @@
     "setuptools",
     "jupyterlab",
     "pycache",
+    "pyproject",
   ]
 }
