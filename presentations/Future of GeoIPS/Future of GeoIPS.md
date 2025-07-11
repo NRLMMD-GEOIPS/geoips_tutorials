@@ -7,7 +7,7 @@
 - Easier Install
 - Cloud-native
 - Making Things Simple
-- Paralelization, GPU and ML Support
+- Parallelization, GPU and ML Support
 - Beyond 2-Dimensions
 
 ## Order Based Procflow
@@ -153,7 +153,7 @@ geoips create geocolor data_files/*
 - Order-based procflow for operational complexity
 - Clear documentation for advanced options
 
-## Paralelization, GPU and ML Support
+## Parallelization, GPU and ML Support
 
 - Consistent interfaces across different computational backends
 - Cloud-native parallelization tools
@@ -177,7 +177,7 @@ geoips create geocolor data_files/*
 
 ## Beyond 2-Dimensions
 
-- Typicaly: 2D spatial + 1D temporal data (satellite imagery)
+- Typically: 2D spatial + 1D temporal data (satellite imagery)
 - Possible but somewhat difficult: Higher dimensional data
 
 **But there's so much more...**
