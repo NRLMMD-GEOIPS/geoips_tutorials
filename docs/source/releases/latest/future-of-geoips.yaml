@@ -18,5 +18,5 @@ workshop:
     number: null
     repo_url: ''
   date:
-    start: null
-    finish: null
+    start: 2025-07-11
+    finish: 2025-07-12
