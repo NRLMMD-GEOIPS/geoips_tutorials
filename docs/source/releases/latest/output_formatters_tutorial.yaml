@@ -1,0 +1,13 @@
+enhancement:
+- title: 'Adding the Output Formatters tutorial'
+  description: 'Output Formatters tutorial for the 2025 GeoIPS workshop'
+  files:
+    added:
+    - 'notebooks/output_formatters_tutorial.ipynb'
+    - 'docs/source/releases/latest/output_formatters_tutorial.yaml'
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: yesterday
+    finish: today
