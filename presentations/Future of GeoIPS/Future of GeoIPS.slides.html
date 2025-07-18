@@ -5750,9 +5750,9 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated::before {
 |----------------------------------------------------------------------------*/
 
 /*
-Hiding collapses in print mode.
+Hiding collapsers in print mode.
 
-Note: input and output wrappers have "display: block" property in print mode.
+Note: input and output wrappers have "display: block" propery in print mode.
 */
 
 @media print {
@@ -5951,7 +5951,7 @@ Note: input and output wrappers have "display: block" property in print mode.
   padding: 0;
   margin: 0;
 
-  /* Added to reveal the box-shadow on the input and output collapses. */
+  /* Added to reveal the box-shadow on the input and output collapsers. */
   overflow: visible;
 }
 
@@ -7454,6 +7454,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Future-of-GeoIPS">Future of GeoIPS<a class="anchor-link" href="#Future-of-GeoIPS">¶</a></h1><ul>
 <li>Procflow Overhaul</li>
+<li>GeoIPS Driver</li>
 <li>Easier Install</li>
 <li>Cloud-native</li>
 <li>Making Things Simple</li>
@@ -7514,10 +7515,12 @@ main {
 <span class="w">  </span><span class="no">The IR_BD default configuration.</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span>
 <span class="w">    </span><span class="nt">interpolator</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">interpolator</span>
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">interp_nearest</span>
 <span class="w">      </span><span class="nt">arguments</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">      </span>
 <span class="w">    </span><span class="nt">algorithm</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">algorithm</span>
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single_channel</span>
@@ -7529,15 +7532,18 @@ main {
 <span class="w">        </span><span class="nt">max_outbounds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">crop</span>
 <span class="w">        </span><span class="nt">norm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 <span class="w">        </span><span class="nt">inverse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">        </span>
 <span class="w">    </span><span class="nt">output_formatter</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output_formatter</span>
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">imagery_annotated</span>
 <span class="w">      </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">      </span>
 <span class="w">        </span><span class="nt">colormapper</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colormapper</span>
 <span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IR_BD</span>
 <span class="w">          </span><span class="nt">arguments</span><span class="p">:</span>
 <span class="w">            </span><span class="nt">data_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-90.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">40.0</span><span class="p p-Indicator">]</span>
+<span class="w">            </span>
 <span class="w">        </span><span class="nt">filename_formatter</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filename_formatter</span>
 <span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">geoips_fname</span>
@@ -7560,6 +7566,23 @@ main {
 <li><strong>Supports complex workflows</strong>: Multiple inputs → multiple outputs</li>
 <li><strong>Eliminates black box processing</strong>: No more (or fewer at least) invisible heuristics</li>
 <li><strong>Cloud-native eventually</strong>: Designed with cloud deployment in mind</li>
+<li><strong>Meta</strong>: Workflows can call workflows!</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=93c1d546-9a93-4b24-8696-ed8d7306c0b2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="GeoIPS-Driver">GeoIPS Driver<a class="anchor-link" href="#GeoIPS-Driver">¶</a></h2><ul>
+<li>File watcher</li>
+<li>File database</li>
+<li>Job dispatcher/query system</li>
+<li>Complete clustered workflow deployment</li>
 </ul>
 </div>
 </div>
@@ -7651,13 +7674,6 @@ main {
 <li>Other clustering services, pick your poison</li>
 <li>Quick AWS/Azure/Google Cloud cluster deployment</li>
 </ul>
-<p><strong>GeoIPS Driver (Open Source):</strong></p>
-<ul>
-<li>File watcher</li>
-<li>File database</li>
-<li>Job dispatcher/query system</li>
-<li>Complete clustered workflow deployment</li>
-</ul>
 </div>
 </div>
 </div>
@@ -7723,6 +7739,19 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a7d2375-ad75-48d3-a197-50f4a932c94e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Configurator-GUI">Configurator GUI<a class="anchor-link" href="#Configurator-GUI">¶</a></h3><ul>
+<li>Sometimes you just need a drag-and-drop GUI!</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fbebc3fc-d4d8-4bcc-90d7-ec6e130416a8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7744,7 +7773,7 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Parallelization,-GPU-and-ML-Support">Parallelization, GPU and ML Support<a class="anchor-link" href="#Parallelization,-GPU-and-ML-Support">¶</a></h2><ul>
+<h2 id="Parallelization,-GPUs-and-ML">Parallelization, GPUs and ML<a class="anchor-link" href="#Parallelization,-GPUs-and-ML">¶</a></h2><ul>
 <li>Consistent interfaces across different computational backends</li>
 <li>Cloud-native parallelization tools</li>
 </ul>
@@ -7763,6 +7792,7 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 <li>Consistent and controllable resource usage</li>
 <li>Avoid "bursty" usage patterns (1 core → 30 cores → 1 core)</li>
 <li>Our goal is steady resource usage (e.g., consistent 4-core usage)</li>
+<li>Moving to a standard of xarray DataTrees (supports dask)</li>
 </ul>
 </div>
 </div>
@@ -7778,6 +7808,7 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 <li>Already supports GPU-heavy algorithms</li>
 <li>Example: Temporal interpolation work by Jason Apke at CIRA</li>
 <li>Providing better guidance for GPU tooling setup</li>
+<li>Core GeoIPS GPU functions</li>
 </ul>
 </div>
 </div>
@@ -7789,11 +7820,10 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Machine-Learning-Support">Machine Learning Support<a class="anchor-link" href="#Machine-Learning-Support">¶</a></h3><ul>
+<h3 id="Machine-Learning">Machine Learning<a class="anchor-link" href="#Machine-Learning">¶</a></h3><ul>
 <li>Product generation for ML model training</li>
-<li>Data augmentation with labels</li>
+<li>Data augmentation and annotation with labels</li>
 <li>Real-time validation metrics</li>
-<li>Integration with training workflows</li>
 </ul>
 </div>
 </div>
@@ -7826,8 +7856,20 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 <li><strong>2D spatial + 2D temporal</strong>: Time series imagery</li>
 <li><strong>Hyperspectral</strong>: 2D spatial + spectral dimensions</li>
 <li><strong>Spectrum files</strong>: 1D spatial, 0D temporal</li>
+<li><strong>Radiosondes</strong>: 1D spatial, 1D temporal</li>
 <li><strong>Arbitrary n-dimensional data</strong></li>
 </ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cee14401-a949-4169-83bb-ceeeeae0b232">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="AVIRIS" src="./aviris.png"/></p>
 </div>
 </div>
 </div>
@@ -7898,10 +7940,11 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Validation Products:</strong></p>
 <ul>
-<li>Not operational products, but validation outputs</li>
+<li>Not operational products, but validation outputs (like graphs, histograms, etc.)</li>
 <li>Quality level assessment</li>
 <li>Performance monitoring</li>
 <li>"Tighten the loop" feedback system</li>
+<li>Can also be produced as "one-offs"</li>
 </ul>
 <p><strong>New Interfaces:</strong></p>
 <ul>
@@ -7919,7 +7962,7 @@ geoips<span class="w"> </span>run<span class="w"> </span>single_source<span clas
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Testing">Testing<a class="anchor-link" href="#Testing">¶</a></h2>
+<h2 id="Testing-(developer-talk)">Testing (developer talk)<a class="anchor-link" href="#Testing-(developer-talk)">¶</a></h2>
 </div>
 </div>
 </div>
