@@ -12,6 +12,7 @@ geoips/commandline/ancillary_info/alias_mapping.json
 # GeoIPS Environment specific .gitignore options:
 
 resource_log.csv
+.virtual_documents/
 
 # auto-generated release note files, all release note information
 # is stored in .yaml format and the rst files auto-generated.
