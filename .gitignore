@@ -13,6 +13,8 @@ geoips/commandline/ancillary_info/alias_mapping.json
 
 resource_log.csv
 .virtual_documents/
+**/outputs/
+**/test_data/
 
 # auto-generated release note files, all release note information
 # is stored in .yaml format and the rst files auto-generated.
