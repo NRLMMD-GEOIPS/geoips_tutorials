@@ -27,6 +27,13 @@ dependencies = [
     "geoips",
     "jupyterlab",
     "jupyterlab-rise",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+test = [
+    "papermill",
+    "psutil",
 ]
 
 [project.urls]
