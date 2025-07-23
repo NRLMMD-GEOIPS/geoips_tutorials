@@ -1,0 +1,15 @@
+workshop:
+- title: 'Add reader tutorial'
+  description: 'This adds a presentation on developing a reader for GeoIPS.'
+  files:
+    added:
+    - 'docs/source/releases/latest/reader-tutorial.yaml'
+    - 'presentations/Reader_Tutorial/README.md'
+    - 'presentations/Reader_Tutorial/GREAT.zip'
+    - 'pyproject.toml'
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: 2025-07-11
+    finish: 2025-07-12
