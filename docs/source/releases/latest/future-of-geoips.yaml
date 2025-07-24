@@ -1,0 +1,22 @@
+workshop:
+- title: 'Add future presentation'
+  description: 'This adds a presentation about our current vision of what the future of GeoIPS will look like.'
+  files:
+    added:
+    - '.cspell.json'
+    - 'docs/source/releases/latest/future-of-geoips.yaml'
+    - 'presentations/Future of GeoIPS/.ipynb_checkpoints/Future of GeoIPS-checkpoint.ipynb'
+    - 'presentations/Future of GeoIPS/.ipynb_checkpoints/Untitled1-checkpoint.ipynb'
+    - 'presentations/Future of GeoIPS/Future of GeoIPS.ipynb'
+    - 'presentations/Future of GeoIPS/Future of GeoIPS.md'
+    - 'presentations/Future of GeoIPS/Future of GeoIPS.png'
+    - 'presentations/Future of GeoIPS/Future of GeoIPS.slides.html'
+    - 'pyproject.toml'
+    modified:
+    - 'notebooks/CLI_Tutorial.ipynb'
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: 2025-07-11
+    finish: 2025-07-12
