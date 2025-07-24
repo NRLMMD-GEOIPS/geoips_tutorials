@@ -1,6 +1,8 @@
 enhancement:
-- title: 'Adding the Output Formatters tutorial'
-  description: 'Output Formatters tutorial for the 2025 GeoIPS workshop'
+- title: 'Adding Output Formatters Tutorial'
+  description: |
+    'Adding the output_formatter tutorial
+    notebook for the 2025 GeoIPS Workshop'
   files:
     added:
     - 'notebooks/output_formatters_tutorial.ipynb'
@@ -9,5 +11,5 @@ enhancement:
     number: null
     repo_url: ''
   date:
-    start: yesterday
+    start: 2025/07/01
     finish: today
