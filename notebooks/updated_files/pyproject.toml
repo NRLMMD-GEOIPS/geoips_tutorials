@@ -1,0 +1,62 @@
+# @ pyproject.toml specifies how to install your package, and ensures it is
+# @ installed as a valid GeoIPS plugin package.
+
+# @ Replace all instances of @ within this template with appropriate values for
+# @ your particular use case.
+# @ Once complete, remove all lines containing "@" from this file.
+
+[tool.poetry]
+# @ Update with your package name, ie:
+# @ name = "@package@"  # package available at the root of the project
+name = "cool_plugins" # package available at the root of the project
+version = "0.0.0"
+description = "@package@ GeoIPS Plugin Package"
+authors = []
+readme = "README.md"
+keywords = []
+license = "LICENSE" # required
+classifiers = [ # // list of PyPI trove classifiers to describe the project
+    "Programming Language :: Python :: 3",
+]
+repository = "https://github.com/NRLMMD-GEOIPS/@package@"
+#documentation = "set the url"
+include = ["**/*.txt", "**/*.py", "**/*.yaml"]
+# @ Update with your package name, ie:
+# @ packages = [{include = "@package@"}]  # package available at the root of the project
+packages = [{include = "cool_plugins"}]
+
+# uses current version .postN and not incrementing
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+metadata = false # don't include local-version hash; date doesn't appear by deafult
+style = "pep440" # pep440 is default; can rmeove later on; used for : keeping 0.0.8 as the default install until 0.0.9 is out
+#style = "semver"
+#tag-branch = "feature-poetry"
+strict = false
+pattern = "(?x)^((?P<epoch>\\d+)!)?(?P<base>\\d+(\\.\\d+)*)([-._]?((?P<stage>[a-zA-Z]+)[-._]?(?P<revision>\\d+)?))?(\\+(?P<tagged_metadata>.+))?$"
+
+[tool.poetry-dynamic-versioning.substitution]
+files = ["*/_version.py"]
+
+# This is where you would specify a pre-build script from pyproject.toml/poetry.
+# [tool.poetry.build]
+# generate-setup-file = false  # I have no idea what this does
+# script = "build.py"  # This gets called as a python script prior to running build
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"                          # object used to perform the build process
+
+[tool.poetry.dependencies] # Include any python dependencies here
+python = ">=3.10.0" # mandatory to declare the required python version
+# "matplotlib" = "*"
+# "xarray" = "*"
+
+# All plugins within the "@package@" package are automatically discovered
+# during the plugin registry process.
+
+[tool.poetry.plugins."geoips.plugin_packages"]
+# @ Update with your package name, ie:
+# @ "@package@" = "@package@"
+"cool_plugins" = "cool_plugins"
