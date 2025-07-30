@@ -1,0 +1,28 @@
+interface: sectors
+family: area_definition_static
+name: my_conus_sector
+docstring: "My CONUS Sector"
+metadata:
+  region:
+    continent: NorthAmerica
+    country: UnitedStates
+    area: x
+    subarea: x
+    state: x
+    city: x
+spec:
+  area_id: my_conus_sector
+  description: CONUS
+  projection:
+    a: 6371228.0
+    lat_0: 37.0
+    lon_0: -96.0
+    proj: eqc
+    units: m
+  resolution:
+    - 3000
+    - 3000
+  shape:
+    height: 1000
+    width: 2200
+  center: [0, 0]
