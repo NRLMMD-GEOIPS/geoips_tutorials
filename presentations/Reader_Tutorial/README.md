@@ -2,7 +2,7 @@
 
 ## Reader tutorial 
 
-Link: https://docs.google.com/presentation/d/1KA4gvjGkXCARUbU8e89oxuiyEkbCKfYv/edit?usp=drive_link&ouid=112702291061154484216&rtpof=true&sd=true
+Link: https://docs.google.com/presentation/d/1WafPCsFjuv7WwMrljze6u1xUMXU34myo/edit?usp=drive_link&ouid=112702291061154484216&rtpof=true&sd=true
 
 Short_Description: Slides for the GeoIPS Reader Tutorial
 Prerequisites: For interactive/follow-along components, a working GeoIPS installation, along with
