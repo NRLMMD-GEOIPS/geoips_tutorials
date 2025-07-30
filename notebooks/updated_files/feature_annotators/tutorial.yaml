@@ -1,0 +1,25 @@
+interface: feature_annotators
+family: cartopy
+name: tutorial
+docstring: |
+  The tutorial feature annotators configuration.
+  All line types enabled. All colored
+  [midnightblue, red, yellow, cyan]. 2px coastlines,
+  2px borders, 2px states, 1px rivers .
+spec:
+  coastline:
+    enabled: true
+    edgecolor : midnightblue
+    linewidth : 2
+  borders:
+    enabled: true
+    edgecolor: red
+    linewidth: 2
+  states:
+    enabled: true
+    edgecolor: darkslategray
+    linewidth: 2
+  rivers:
+    enabled: true
+    edgecolor: cyan
+    linewidth: 1
