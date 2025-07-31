@@ -1,0 +1,21 @@
+interface: gridline_annotators
+family: cartopy
+name: tutorial
+docstring: |
+  The tutorial gridline_annotators configuration.
+  All gridline labels enabled, latitude and
+  Longitude lines colored mediumseagreen, 2.5 degree
+  spacing, 1px linewidth, and [5, 3] linestyle.
+spec:
+  labels:
+    top: true
+    bottom: true
+    left: true
+    right: true
+  lines:
+    color: mediumseagreen
+    linestyle: [5, 3]
+    linewidth: 1
+  spacing:
+    latitude: 2.5
+    longitude: 2.5
