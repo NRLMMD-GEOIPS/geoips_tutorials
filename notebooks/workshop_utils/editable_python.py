@@ -1,33 +1,33 @@
-"""Reusable widgets for GeoIPS workshop notebooks."""
+"""Reusable Python editor widget for GeoIPS workshop notebooks."""
 
+import ast
 from pathlib import Path
 
 import ipywidgets as widgets
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
-from pygments.lexers import YamlLexer
-import yaml
+from pygments.lexers import PythonLexer
 
 
-def yaml_editor(
+def python_editor(
     path: str | Path,
-    default_yaml: str = "",
+    default_python: str = "",
     *,
     height: str = "300px",
 ) -> widgets.VBox:
-    """Return a widget for editing, validating, and saving a YAML file."""
+    """Return a widget for editing, validating, and saving a Python file."""
 
-    config_path = Path(path).expanduser()
-    config_path.parent.mkdir(parents=True, exist_ok=True)
+    python_path = Path(path).expanduser()
+    python_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if config_path.exists():
-        initial_yaml = config_path.read_text(encoding="utf-8")
+    if python_path.exists():
+        initial_python = python_path.read_text(encoding="utf-8")
     else:
-        initial_yaml = default_yaml
+        initial_python = default_python
 
     textarea = widgets.Textarea(
-        value=initial_yaml,
-        description="YAML:",
+        value=initial_python,
+        description="Python:",
         layout=widgets.Layout(
             width="100%",
             height=height,
@@ -57,40 +57,38 @@ def yaml_editor(
     def update_preview(_=None):
         preview.value = highlight(
             textarea.value,
-            YamlLexer(),
+            PythonLexer(),
             formatter,
         )
 
     textarea.observe(update_preview, names="value")
     update_preview()
 
-    def save_yaml(_):
+    def save_python(_):
         with status:
             status.clear_output(wait=True)
 
             try:
-                yaml.safe_load(textarea.value)
-            except yaml.YAMLError as error:
+                ast.parse(textarea.value, filename=str(python_path))
+            except SyntaxError as error:
                 save_button.button_style = "danger"
-                print("Invalid YAML:")
-                print(error)
+                print(f"Syntax error on line {error.lineno}:")
+                print(error.msg)
                 return
 
-            # Write to a temporary file first, then atomically replace the
-            # destination so an interrupted write cannot corrupt the file.
-            temporary_path = config_path.with_name(
-                f".{config_path.name}.tmp"
+            temporary_path = python_path.with_name(
+                f".{python_path.name}.tmp"
             )
             temporary_path.write_text(
                 textarea.value,
                 encoding="utf-8",
             )
-            temporary_path.replace(config_path)
+            temporary_path.replace(python_path)
 
             save_button.button_style = "success"
-            print(f"Saved valid YAML to {config_path}")
+            print(f"Saved valid Python to {python_path}")
 
-    save_button.on_click(save_yaml)
+    save_button.on_click(save_python)
 
     return widgets.VBox(
         [
