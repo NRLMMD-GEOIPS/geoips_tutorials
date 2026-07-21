@@ -11,9 +11,9 @@ spec:
     read_abi_data:
       kind: reader
       name: abi_netcdf
+      depends_on: [retrieve_area_definition]
       arguments:
         chans: &variable-list ['B08BT', 'B10BT', 'B07BT', 'B13BT', 'B05Ref', 'B02Ref']
-        resampled_read: True
     apply_nn_interpolator:
       kind: interpolator
       name: interp_nearest
