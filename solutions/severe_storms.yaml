@@ -1,0 +1,60 @@
+interface: workflows
+family: order_based
+name: My-ABI-Severe-Storms
+docstring: |
+  ABI Severe Storms RGB workflow.
+spec:
+  steps:
+    retrieve_area_definition:
+      kind: sector
+      name: goes_east
+    read_abi_data:
+      kind: reader
+      name: abi_netcdf
+      arguments:
+        chans: &variable-list ['B08BT', 'B10BT', 'B07BT', 'B13BT', 'B05Ref', 'B02Ref']
+        resampled_read: True
+    apply_nn_interpolator:
+      kind: interpolator
+      name: interp_nearest
+      depends_on: [read_abi_data, retrieve_area_definition]
+      arguments:
+        varlist: *variable-list
+    apply_severe_storms_algorithm:
+      kind: algorithm
+      name: severe_storms
+      arguments:
+        red:
+          range: [-35.0, 5.0]
+          units: Kelvin
+          gamma: 1
+        green:
+          range: [5.0, 60.0]
+          units: Kelvin
+          gamma: 0.5
+        blue:
+          range: [-75.0, 25.0]
+          units: percentage
+          gamma: 1
+    retrieve_colormap:
+      kind: colormapper
+      name: cmap_rgb
+    retrieve_gridlines:
+      kind: gridline_annotator
+      name: default
+    retrieve_features:
+      kind: feature_annotator
+      name: default
+    apply_imagery_annotated:
+      kind: output_formatter
+      name: imagery_annotated
+      depends_on:
+        - apply_severe_storms_algorithm
+        - retrieve_colormap
+        - retrieve_gridlines
+        - retrieve_features
+        - retrieve_area_definition
+      arguments:
+        product_name: My-ABI-Severe-Storms
+        product_name_title: G16 Severe Storms RGB
+        output_fnames: [!ENV $GEOIPS_OUTDIRS/abi_severe_storms.png]
