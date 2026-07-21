@@ -1,5 +1,6 @@
 """Reusable widgets for GeoIPS workshop notebooks."""
 
+import os
 from pathlib import Path
 
 import ipywidgets as widgets
@@ -7,6 +8,34 @@ from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import YamlLexer
 import yaml
+
+
+def env_constructor(loader, node):
+    """YAML constructor for the ``!ENV`` tag that expands environment variables.
+
+    This function allows YAML files to include environment variables using
+    the ``!ENV`` tag. The scalar value associated with the tag is read and
+    any environment variables within the string (e.g. ``${VAR_NAME}``) are
+    expanded using :func:`os.path.expandvars`.
+
+    Parameters
+    ----------
+    loader : yaml.Loader
+        The YAML loader instance currently parsing the document.
+    node : yaml.Node
+        The YAML node containing the scalar value associated with the ``!ENV`` tag.
+
+    Returns
+    -------
+    str
+        The scalar value with any environment variables expanded using the
+        current process environment.
+    """
+    value = loader.construct_scalar(node)
+    return os.path.expandvars(value)
+
+
+yaml.SafeLoader.add_constructor("!ENV", env_constructor)
 
 
 def yaml_editor(
@@ -70,7 +99,7 @@ def yaml_editor(
 
             try:
                 yaml.safe_load(textarea.value)
-            except yaml.YAMLError as error:
+            except Exception as error:
                 save_button.button_style = "danger"
                 print("Invalid YAML:")
                 print(error)
@@ -78,9 +107,7 @@ def yaml_editor(
 
             # Write to a temporary file first, then atomically replace the
             # destination so an interrupted write cannot corrupt the file.
-            temporary_path = config_path.with_name(
-                f".{config_path.name}.tmp"
-            )
+            temporary_path = config_path.with_name(f".{config_path.name}.tmp")
             temporary_path.write_text(
                 textarea.value,
                 encoding="utf-8",

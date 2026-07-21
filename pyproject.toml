@@ -8,10 +8,16 @@ version = "0.1.0"
 description = "Jupyter notebook tutorials for the 2025 GeoIPS Workshop"
 readme = "README.md"
 requires-python = ">=3.11"
-authors = [
-    {name = "GeoIPS Team", email = "geoips@nrlmry.navy.mil"}
+authors = [{ name = "GeoIPS Team", email = "geoips@nrlmry.navy.mil" }]
+keywords = [
+    "geoips",
+    "tutorial",
+    "workshop",
+    "jupyter",
+    "notebooks",
+    "meteorology",
+    "satellite",
 ]
-keywords = ["geoips", "tutorial", "workshop", "jupyter", "notebooks", "meteorology", "satellite"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Education",
@@ -28,14 +34,13 @@ dependencies = [
     "jupyterlab",
     "jupyterlab-rise",
     "python-dotenv",
+    "ipywidgets",
+    "pygments",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]
-test = [
-    "papermill",
-    "psutil",
-    "dotenv"
-]
+test = ["papermill", "psutil", "dotenv"]
 
 [project.urls]
 Homepage = "https://github.com/NRLMMD-GEOIPS/geoips-tutorials"
