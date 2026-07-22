@@ -4,7 +4,7 @@ Mirrors the setup from the first half of the `2026-Intro-and-algorithms`
 tutorial so a late-joining attendee can get a working `cool_plugins` package
 (plus the `workshop_infrared` workflow) from a single notebook cell:
 
-    from solutions.setup_cool_plugins import ensure_cool_plugins
+    from workshop_utils.setup_cool_plugins import ensure_cool_plugins
     ensure_cool_plugins()
 
 The function is idempotent. If the package is already installed and the
@@ -21,9 +21,7 @@ import sys
 from pathlib import Path
 
 # `workshop_infrared.yaml` is expected to live next to this script in solutions/.
-SOLUTIONS_DIR = Path(
-    os.environ.get("GEOIPS_PACKAGES_DIR", Path.home())/ "geoips_tutorials" / "solutions"
-).expanduser()
+SOLUTIONS_DIR = Path(__file__).resolve().parents[2] / "solutions"
 WORKFLOW_FILENAME = "workshop_infrared.yaml"
 
 # Defaults matching the workshop conventions; each is overridable via the env.
