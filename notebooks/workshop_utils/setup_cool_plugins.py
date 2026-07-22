@@ -21,7 +21,9 @@ import sys
 from pathlib import Path
 
 # `workshop_infrared.yaml` is expected to live next to this script in solutions/.
-SOLUTIONS_DIR = Path(__file__).resolve().parent
+SOLUTIONS_DIR = Path(
+    os.environ.get("GEOIPS_PACKAGES_DIR", Path.home())/ "geoips_tutorials" / "solutions"
+).expanduser()
 WORKFLOW_FILENAME = "workshop_infrared.yaml"
 
 # Defaults matching the workshop conventions; each is overridable via the env.
