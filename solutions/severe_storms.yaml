@@ -39,22 +39,13 @@ spec:
     retrieve_colormap:
       kind: colormapper
       name: cmap_rgb
-    retrieve_gridlines:
-      kind: gridline_annotator
-      name: default
-    retrieve_features:
-      kind: feature_annotator
-      name: default
-    apply_imagery_annotated:
+    apply_imagery_clean:
       kind: output_formatter
-      name: imagery_annotated
+      name: imagery_clean
       depends_on:
         - apply_severe_storms_algorithm
         - retrieve_colormap
-        - retrieve_gridlines
-        - retrieve_features
         - retrieve_area_definition
       arguments:
         product_name: My-ABI-Severe-Storms
-        product_name_title: G16 Severe Storms RGB
         output_fnames: [!ENV $GEOIPS_OUTDIRS/abi_severe_storms.png]
