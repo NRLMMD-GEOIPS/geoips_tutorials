@@ -7,7 +7,7 @@ spec:
   steps:
     retrieve_area_definition:
       kind: sector
-      name: goes_east
+      name: conus
     read_abi_data:
       kind: reader
       name: abi_netcdf
