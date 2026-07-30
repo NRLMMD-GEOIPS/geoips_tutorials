@@ -1,4 +1,44 @@
-# 2025 GeoIPS Workshop Tutorials
+# GeoIPS Workshop Tutorials
+
+Installation
+------------
+If you've not yet installed GeoIPS, please follow the following installation
+instructions before continuing. GeoIPS does not need to be installed in editable mode
+unless you plan to actively develop the core package.
+
+Non-editable Instructions:
+
+```bash
+pip install geoips
+```
+
+Editable Instructions:
+
+[Please visit this folder to find the correct installation instructions for your machine](https://github.com/NRLMMD-GEOIPS/geoips/tree/main/docs/source/contribute).
+
+Once you've installed GeoIPS, go ahead and install this package as well. If you have
+``$GEOIPS_PACKAGES_DIR`` set as an environment variable, you can run the following command:
+
+```bash
+pip install -e $GEOIPS_PACKAGES_DIR/geoips_tutorials
+```
+
+Otherwise, navigate to the location you cloned this package and run:
+```bash
+pip install -e .
+```
+
+Running the tutorials
+---------------------
+
+Most of our tutorials make use of Jupyter Notebooks. Make sure you follow the
+instructions laid out below for interactive code cell blocks.
+
+I would recommend beginning with the following tutorial. It builds nicely into the
+tutorials which follow afterwards.
+
+[Click Here to visit that tutorial](./notebooks/2026-Intro-and-algorithms.ipynb).
+
 
 `output_formatter` Tutorial
 ---------------------------
