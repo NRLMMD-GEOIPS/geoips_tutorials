@@ -1,3 +1,5 @@
+"""Channel mapping module for GeoIPS geostationary readers."""
+
 GOES_ABI = {
     "LOW": [
         "B04Rad",

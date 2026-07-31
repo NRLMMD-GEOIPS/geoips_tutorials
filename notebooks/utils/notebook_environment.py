@@ -1,15 +1,16 @@
+"""Setup Jupyter Notebook environment."""
+
 import tempfile
 from pathlib import Path
 import shutil
 import atexit
-from datetime import datetime, timedelta
 from IPython import get_ipython
 import uuid
-from pathlib import Path
 
 
 # Clean ALL previous temp dirs from this notebook system
 def clean_all_geoips_tutorial_tempdirs(tmp_root, ignore_dirs):
+    """Clean all GeoIPS tutorial temporary directories."""
     print("Cleaning all previous tutorial temp dirs...")
     for dir_path in tmp_root.glob("geoips_tutorial_tmp_*"):
         if dir_path.is_dir() and Path(dir_path).name not in ignore_dirs:
@@ -23,6 +24,7 @@ def clean_all_geoips_tutorial_tempdirs(tmp_root, ignore_dirs):
 
 
 def setup(tmp_root=tempfile.gettempdir(), ignore_dirs=[]):
+    """Set up the environment for Jupyter Notebooks."""
     # Define a global temporary root directory for the tutorial
     tmp_root = Path(tmp_root)
 
@@ -39,7 +41,8 @@ def setup(tmp_root=tempfile.gettempdir(), ignore_dirs=[]):
     print("Setting up cleanup hook for current session temp dir...")
 
     @atexit.register
-    def _cleanup_sesson_temp_dir():
+    def _cleanup_session_temp_dir():
+        """Clean up session temporary directory."""
         print(f"Cleaning up current session temp dir: {temp_dir}")
         shutil.rmtree(temp_dir, ignore_errors=True)
         # Clean ALL previous temp dirs again to ensure no leftovers

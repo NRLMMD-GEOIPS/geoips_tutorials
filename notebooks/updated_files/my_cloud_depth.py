@@ -5,6 +5,7 @@
 
 Difference of cloud top height and cloud base height.
 """
+
 import logging
 from xarray import DataArray
 

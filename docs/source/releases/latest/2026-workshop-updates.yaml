@@ -1,0 +1,48 @@
+enhancement:
+- title: 2026 Workshop Updates
+  description: |
+    Updates for the 2026 Annual GeoIPS Workshop. Includes an entirely new tutorial
+    focusing on implementing the ABI Severe Storms RGB algorithms. Introduces workflows
+    and updated other tutorials to reflect the most recent state of GeoIPS. Additionally,
+    includes updates to the README.md for how to locally install and run these Jupyter
+    Notebooks. Added solutions to the new tutorial as well.
+  files:
+    moved:
+      - notebooks/2025/beginner_tutorial_updated.ipynb
+      - notebooks/2025/combined_beginner_tutorial.ipynb
+      - notebooks/2025/merge_notebooks.py
+    added:
+      - .flake8
+      - notebooks/2026-Intro-and-algorithms.ipynb
+      - notebooks/images/abi_severe_storms.png
+      - notebooks/images/alg_screenshot.png
+      - notebooks/images/goes_abi_severe_storms.png
+      - notebooks/images/workflow_top_level.png
+      - notebooks/scripting_with_geoips.ipynb
+      - notebooks/workshop_utils/__init__.py
+      - notebooks/workshop_utils/editable_python.py
+      - notebooks/workshop_utils/editable_yaml.py
+      - notebooks/workshop_utils/setup_cool_plugins.py
+      - presentations/Reader_Tutorial/2026 - Reader Tutorial.pptx
+      - solutions/geoips_reader_channel_mapping.py
+      - solutions/severe_storms.py
+      - solutions/severe_storms.yaml
+      - solutions/workshop_infrared.yaml
+    modified:
+      - README.md
+      - docs/source/WMO_RGBs/RGB-WS-2025_MeetingReport_final.pdf
+      - notebooks/CLI_Tutorial.ipynb
+      - notebooks/output_formatters_tutorial.ipynb
+      - notebooks/setup_environment.py
+      - notebooks/updated_files/my_cloud_depth.py
+      - notebooks/updated_files/my_netcdf_output.py
+      - notebooks/utils/__init__.py
+      - notebooks/utils/notebook_environment.py
+      - profile_notebook.py
+      - pyproject.toml
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: null
+    finish: null

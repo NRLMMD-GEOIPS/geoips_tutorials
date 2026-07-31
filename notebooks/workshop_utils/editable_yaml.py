@@ -45,7 +45,6 @@ def yaml_editor(
     height: str = "300px",
 ) -> widgets.VBox:
     """Return a widget for editing, validating, and saving a YAML file."""
-
     config_path = Path(path).expanduser()
     config_path.parent.mkdir(parents=True, exist_ok=True)
 

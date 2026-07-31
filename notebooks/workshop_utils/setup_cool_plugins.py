@@ -50,9 +50,7 @@ def _resolve_paths():
         os.environ.get("GEOIPS_PACKAGES_DIR", Path.home() / "geoips")
     ).expanduser()
     pkg_name = os.environ.get("MY_PKG_NAME", DEFAULT_PACKAGE_NAME)
-    pkg_dir = Path(
-        os.environ.get("MY_PKG_DIR", packages_dir / pkg_name)
-    ).expanduser()
+    pkg_dir = Path(os.environ.get("MY_PKG_DIR", packages_dir / pkg_name)).expanduser()
     repo_url = os.environ.get("GEOIPS_REPO_URL", DEFAULT_REPO_URL)
     return packages_dir, pkg_name, pkg_dir, repo_url
 
@@ -86,7 +84,10 @@ def _clone_and_rename_template(packages_dir, repo_url, pkg_name, pkg_dir):
     if not template_dir.exists():
         _run(
             [
-                "git", "clone", "--no-tags", "--single-branch",
+                "git",
+                "clone",
+                "--no-tags",
+                "--single-branch",
                 f"{repo_url}/{TEMPLATE_NAME}.git",
             ],
             cwd=packages_dir,

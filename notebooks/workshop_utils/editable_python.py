@@ -16,7 +16,6 @@ def python_editor(
     height: str = "300px",
 ) -> widgets.VBox:
     """Return a widget for editing, validating, and saving a Python file."""
-
     python_path = Path(path).expanduser()
     python_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -76,9 +75,7 @@ def python_editor(
                 print(error.msg)
                 return
 
-            temporary_path = python_path.with_name(
-                f".{python_path.name}.tmp"
-            )
+            temporary_path = python_path.with_name(f".{python_path.name}.tmp")
             temporary_path.write_text(
                 textarea.value,
                 encoding="utf-8",

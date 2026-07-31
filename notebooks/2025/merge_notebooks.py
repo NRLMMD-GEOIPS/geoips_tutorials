@@ -1,7 +1,10 @@
+"""Pass."""
+
 import nbformat
 
 
 def merge_notebooks_clean(nb1_path, nb2_path, output_path):
+    """Pass."""
     # Load both notebooks
     nb1 = nbformat.read(nb1_path, as_version=4)
     nb2 = nbformat.read(nb2_path, as_version=4)
